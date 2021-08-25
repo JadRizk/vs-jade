@@ -1,45 +1,50 @@
 export * from './common';
 export * from './dark';
-export * from './light';
 
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { dark } from './dark';
-import { light } from './light';
+import { dark } from './DefaultDark';
+
+const themeMapper = {
+    dark: dark,
+};
+
+export type VsThemes = keyof typeof themeMapper;
 
 export const ThemeContext = React.createContext({
-    theme: 'light',
-    toggle: () => undefined,
+    theme: 'dark',
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    toggleTheme: (_theme: VsThemes) => undefined,
 });
 
 export const useTheme = () => {
-    const { theme, toggle } = React.useContext(ThemeContext);
+    const { theme, toggleTheme } = React.useContext(ThemeContext);
 
     return {
-        theme: theme === 'light' ? light : dark,
-        toggle,
+        theme: themeMapper[theme],
+        toggleTheme,
         themeName: theme,
     };
 };
 
 export const StyledThemeProvider: React.FC = ({ children }) => {
-    const [theme, setTheme] = React.useState('light');
+    const [theme, setTheme] = React.useState('dark');
 
-    const toggle = () => {
-        setTheme(theme => (theme === 'light' ? 'dark' : 'light'));
+    const toggleTheme = (theme: VsThemes) => {
+        setTheme(theme);
     };
     const values = React.useMemo(
         () => ({
             theme,
-            toggle,
+            toggleTheme,
         }),
-        [toggle, theme],
+        [toggleTheme, theme],
     );
 
     return (
         <ThemeContext.Provider value={values}>
-            <ThemeProvider theme={theme === 'light' ? light : dark}>{children}</ThemeProvider>
+            <ThemeProvider theme={themeMapper[theme]}>{children}</ThemeProvider>
         </ThemeContext.Provider>
     );
 };

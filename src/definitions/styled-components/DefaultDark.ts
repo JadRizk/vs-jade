@@ -1,6 +1,4 @@
-// #region Global Imports
 import { DefaultTheme } from 'styled-components';
-// #endregion Global Imports
 
 interface Theme extends DefaultTheme {
     colors: {
@@ -29,7 +27,7 @@ interface Theme extends DefaultTheme {
     };
 }
 
-const light: Theme = {
+export const dark: Theme = {
     colors: {
         background: '#24292e',
         textBg: 'rgba(56, 58, 61, 0.35)',
@@ -55,5 +53,3 @@ const light: Theme = {
         articleBg: '#1f2428',
     },
 };
-
-export { light };

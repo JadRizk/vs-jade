@@ -31,7 +31,7 @@ export const SectionWrapper = styled.section`
 
 const WindowTitle = styled.p`
     flex: 1;
-    text-align: start;
+    text-align: center;
 
     @media screen and (max-width: 900px) {
         flex: 4;
@@ -39,7 +39,6 @@ const WindowTitle = styled.p`
 `;
 
 const WindowButtons = styled.div`
-    flex: 1;
     display: flex;
     align-items: center;
     margin-left: auto;

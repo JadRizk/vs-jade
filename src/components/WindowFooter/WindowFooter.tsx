@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import GitCompareIcon from '@assets/icons/GitCompareIcon';
-// import WarningIcon from "@assets/icons/WarningIcon";
+import ErrorIcon from '@assets/icons/ErrorIcon';
+import WarningIcon from '@assets/icons/WarningIcon';
+import VercelIcon from '@assets/icons/VercelIcon';
+import CheckIcon from '@assets/icons/CheckIcon';
 
 export const WindowFooter: React.FC = () => {
     return (
@@ -9,6 +12,23 @@ export const WindowFooter: React.FC = () => {
                 <FooterSection>
                     <GitCompare />
                     <p>main</p>
+                </FooterSection>
+                <FooterSection>
+                    <StyledErrorIcon />
+                    <p>0</p>
+                    &nbsp;&nbsp;
+                    <StyledWarningIcon />
+                    <p>0</p>
+                </FooterSection>
+            </Stack>
+            <Stack>
+                <FooterSection>
+                    <StyledVercelIcon />
+                    <p>Powered by Next.js</p>
+                </FooterSection>
+                <FooterSection>
+                    <StyledCheckIcon />
+                    <p>Prettier</p>
                 </FooterSection>
             </Stack>
         </Footer>
@@ -54,5 +74,21 @@ const FooterSection = styled.div`
 `;
 
 const GitCompare = styled(GitCompareIcon)`
+    margin-right: 5px;
+`;
+
+const StyledErrorIcon = styled(ErrorIcon)`
+    margin-right: 5px;
+`;
+
+const StyledWarningIcon = styled(WarningIcon)`
+    margin-right: 5px;
+`;
+
+const StyledVercelIcon = styled(VercelIcon)`
+    margin-right: 5px;
+`;
+
+const StyledCheckIcon = styled(CheckIcon)`
     margin-right: 5px;
 `;

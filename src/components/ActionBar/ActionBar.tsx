@@ -1,27 +1,46 @@
 import styled, { css } from 'styled-components';
+import { useRouter } from 'next/router';
+
 import Link from 'next/link';
 import FilesIcon from '@assets/icons/FilesIcon';
-import GithubIcon from '@assets/icons/GithubIcon';
+// import GithubIcon from '@assets/icons/GithubIcon';
+import SettingsIcon from '@assets/icons/SettingsIcon';
 
 export const ActionBar: React.FC = () => {
+    const { pathname } = useRouter();
+
+    const getFillColor = (value: string) =>
+        pathname === value ? 'rgb(225, 228, 232)' : 'rgb(106, 115, 125)';
+
+    const isActive = (value: string) => pathname === value;
+
     return (
         <Wrapper>
             <TopItems>
                 <Link href="/">
-                    <ActionIconWrapper isActive>
+                    <ActionIconWrapper isActive={isActive('/')}>
                         <ActionIcon>
-                            <FilesIcon fill={'rgb(225, 228, 232)'} />
+                            <FilesIcon fill={getFillColor('/')} />
                         </ActionIcon>
                     </ActionIconWrapper>
                 </Link>
-                <Link href="/github">
-                    <ActionIconWrapper>
+                {/* <Link href="/github">
+                    <ActionIconWrapper isActive={isActive('/github')}>
                         <ActionIcon>
-                            <GithubIcon fill={'rgb(106, 115, 125)'} />
+                            <GithubIcon fill={getFillColor('/github')} />
                         </ActionIcon>
                     </ActionIconWrapper>
-                </Link>
+                </Link> */}
             </TopItems>
+            <BottomItems>
+                <Link href="/themeConfig">
+                    <ActionIconWrapper isActive={isActive('/themeConfig')}>
+                        <ActionIcon>
+                            <SettingsIcon fill={getFillColor('/themeConfig')} />
+                        </ActionIcon>
+                    </ActionIconWrapper>
+                </Link>
+            </BottomItems>
         </Wrapper>
     );
 };
@@ -35,16 +54,16 @@ const Wrapper = styled.aside`
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
-    width: 4vw;
-    min-width: 40px;
-    height: calc(100vh - 58px);
+    width: 55px;
+    height: calc(100vh - 85px);
 
     @media screen and (max-width: 900px) {
-        width: 8vw;
+        width: 45px;
+        height: calc(100vh - 55px);
     }
 
     @media screen and (max-width: 600px) {
-        width: 10vw;
+        width: 55px;
     }
 `;
 
@@ -88,3 +107,5 @@ const ActionIcon = styled.div`
         }
     }
 `;
+
+const BottomItems = styled.div``;

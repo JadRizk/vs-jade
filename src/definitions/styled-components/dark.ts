@@ -1,6 +1,4 @@
-// #region Global Imports
 import { DefaultTheme } from 'styled-components';
-// #endregion Global Imports
 import { common } from './common';
 
 const dark: DefaultTheme = {

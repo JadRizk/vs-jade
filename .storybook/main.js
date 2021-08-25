@@ -8,6 +8,6 @@ module.exports = {
         'storybook-addon-styled-component-theme/dist/register',
     ],
     webpackFinal: async config => {
-        return config
+        return config;
     },
-}
+};
