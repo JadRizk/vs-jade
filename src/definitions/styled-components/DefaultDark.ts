@@ -29,7 +29,7 @@ interface Theme extends DefaultTheme {
 
 export const dark: Theme = {
     colors: {
-        background: '#24292e',
+        background: '#1e1e1e',
         textBg: 'rgba(56, 58, 61, 0.35)',
         textColor: '#efefef',
         accentColor: '#f9826c',

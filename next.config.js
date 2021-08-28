@@ -6,6 +6,15 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextTranslate = require('next-translate');
 
-const config = {};
+const config = {
+    webpack: config => {
+        config.module.rules.push({
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            loader: require.resolve('url-loader'),
+        });
+
+        return config;
+    },
+};
 
 module.exports = withPlugins([[withBundleAnalyzer], [nextTranslate]], config);
