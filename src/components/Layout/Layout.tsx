@@ -1,5 +1,4 @@
-import { ActionBar } from '@components/ActionBar/ActionBar';
-import { WindowFooter, WindowBar, OsBar } from '@components';
+import { WindowFooter, WindowBar, OsBar, ActionBar, ContentExplorer } from './components';
 import styled, { css } from 'styled-components';
 
 const Layout: React.FC = ({ children }) => {
@@ -9,6 +8,7 @@ const Layout: React.FC = ({ children }) => {
             <WindowBar />
             <Container>
                 <ActionBar />
+                <ContentExplorer />
                 <FullWidth>
                     <Main>{children}</Main>
                 </FullWidth>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import FilesIcon from '@assets/icons/FilesIcon';
 // import GithubIcon from '@assets/icons/GithubIcon';
 import SettingsIcon from '@assets/icons/SettingsIcon';
+import AccountIcon from '@assets/icons/AccountIcon';
 
 export const ActionBar: React.FC = () => {
     const { pathname } = useRouter();
@@ -33,6 +34,13 @@ export const ActionBar: React.FC = () => {
                 </Link> */}
             </TopItems>
             <BottomItems>
+                <Link href="/about">
+                    <ActionIconWrapper isActive={isActive('/about')}>
+                        <ActionIcon>
+                            <AccountIcon fill={getFillColor('/about')} />
+                        </ActionIcon>
+                    </ActionIconWrapper>
+                </Link>
                 <Link href="/themeConfig">
                     <ActionIconWrapper isActive={isActive('/themeConfig')}>
                         <ActionIcon>

@@ -1,4 +1,4 @@
-import { SectionWrapper } from '@components/WindowBar/WindowBar';
+import { SectionWrapper } from './WindowBar';
 import styled from 'styled-components';
 
 const windowOptions = ['Code', 'File', 'Edit', 'View', 'Go', 'Run', 'Terminal', 'Window', 'Help'];
